@@ -146,7 +146,7 @@ function calculateSavings() {
     const annualHighwayMileage = annualMileage * (1 - cityHighwayRatio);
 
     const annualFuelCost = ((annualCityMileage / currentVehicle.city08) + (annualHighwayMileage / currentVehicle.highway08)) * fuelPrice;
-    const annualElectricityCost = ((annualCityMileage / intendedVehicle.city08) + (annualHighwayMileage / intendedVehicle.highway08)) * electricityCost;
+    const annualElectricityCost = ((annualCityMileage * intendedVehicle.cityE) + (annualHighwayMileage * intendedVehicle.highwayE)) * electricityCost/100;
 
     const savings = annualFuelCost - annualElectricityCost;
     const monthlySavings = savings / 12;
